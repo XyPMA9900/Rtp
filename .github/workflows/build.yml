@@ -14,10 +14,15 @@ jobs:
         with:
           java-version: '21'
 
+      - name: Download PowerNukkitX API
+        run: |
+          mkdir libs
+          curl -L -o libs/pnx.jar https://repo.opencollab.dev/maven-snapshots/cn/nukkit/powernukkitx/2.0.0-SNAPSHOT/powernukkitx-2.0.0-SNAPSHOT.jar
+
       - name: Compile
         run: |
           mkdir build
-          javac -d build src/main/java/rtp/Main.java
+          javac -cp libs/pnx.jar -d build src/main/java/rtp/Main.java
 
       - name: Create jar
         run: |
