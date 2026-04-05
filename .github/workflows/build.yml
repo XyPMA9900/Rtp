@@ -29,7 +29,7 @@ jobs:
           jar cf RTP.jar -C build . plugin.yml
 
       - name: Upload
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: RTP
           path: RTP.jar
